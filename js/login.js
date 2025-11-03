@@ -24,8 +24,7 @@ function handleNGOLogin(event) {
     setTimeout(() => {
         // In a real application, this would make an API call
         // For demo purposes, we'll just redirect
-        alert(`Welcome, ${orgName}!\n\nLogin successful. Redirecting to dashboard...`);
-        window.location.href = 'index.html';
+        window.location.href = `ngo.html?=${encodeURIComponent(orgName)}`;
     }, 1500);
     
     return false;
@@ -36,34 +35,41 @@ function handleReport(event) {
 
     const formData = new FormData(event.target);
     const email = formData.get('email');
+    const name = formData.get('name');
     const location = formData.get('location');
     const complaint = formData.get('complaint');
 
-    console.log('Submitting report:', { email, location, complaint });
+    console.log('Submitting report:', { name ,email, location, complaint });
 
     showLoadingState(event.target);
 
-    // Send data to your Make.com webhook
+    // Create report object
+    const newReport = {
+        timestamp: new Date().toISOString(),
+        name: name,
+        email: email,
+        location: location,
+        complaint: complaint
+    };
+
+    // ✅ Save to localStorage
+    const existingReports = JSON.parse(localStorage.getItem('reports')) || [];
+    existingReports.push(newReport);
+    localStorage.setItem('reports', JSON.stringify(existingReports));
+
+    // ✅ Send data to webhook (optional)
     fetch('https://hook.eu2.make.com/0p3sjmnhwlqk3wfqd7g771q48yfo3qtt', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            timestamp: new Date().toISOString(),
-            email: email,
-            location: location,
-            complaint: complaint
-            
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newReport)
     })
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
     })
-    .then(data => {
+    .then(() => {
         alert('✅ Thank you for your report!\nYour submission was successful.');
-        window.location.href = 'index.html';
+        window.location.href = 'ngo.html';
     })
     .catch(error => {
         console.error('Error submitting report:', error);
@@ -71,6 +77,7 @@ function handleReport(event) {
         resetLoadingState(event.target);
     });
 }
+
 
 
 /**

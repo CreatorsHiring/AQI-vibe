@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO PORTAL</title>
+</head>
+<body>
+    <p></p>
+    <div id="report-list" class="report-container"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const orgName = urlParams.get('');
+        document.querySelector('p').textContent = `Welcome, ${orgName} NGO!`;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reportContainer = document.getElementById('report-list');
+            const reports = JSON.parse(localStorage.getItem('reports')) || [];
+
+            if (reports.length === 0) {
+                reportContainer.innerHTML = "<p>No reports submitted yet.</p>";
+                return;
+            }
+
+            reportContainer.innerHTML = reports.map(report => `
+                <div class="report-card">
+                    <h3>${report.location}</h3>
+                    <p><strong>Email:</strong> ${report.email}</p>
+                    <p><strong>Complaint:</strong> ${report.complaint}</p>
+                    <small>${new Date(report.timestamp).toLocaleString()}</small>
+                </div>
+            `).join('');
+        });
+
+
+        
+    </script>
+</body>
+</html>
