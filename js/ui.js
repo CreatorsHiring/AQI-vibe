@@ -18,10 +18,11 @@ function initializeUI() {
         toggleHotspotsBtn.addEventListener('click', toggleHotspots);
     }
 
-    // Compare cities button
-    const compareCitiesBtn = document.getElementById('compareCities');
-    if (compareCitiesBtn) {
-        compareCitiesBtn.addEventListener('click', openCompareModal);
+    const eduDocBtn = document.getElementById('eduDoc');
+    if (eduDocBtn) {
+        eduDocBtn.addEventListener('click', () => {
+            window.open('edu.html', '_blank');
+        });
     }
 
     // Show trends button
