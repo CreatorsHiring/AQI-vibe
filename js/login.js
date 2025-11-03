@@ -31,6 +31,48 @@ function handleNGOLogin(event) {
     return false;
 }
 
+function handleReport(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const email = formData.get('email');
+    const location = formData.get('location');
+    const complaint = formData.get('complaint');
+
+    console.log('Submitting report:', { email, location, complaint });
+
+    showLoadingState(event.target);
+
+    // Send data to your Make.com webhook
+    fetch('https://hook.eu2.make.com/0p3sjmnhwlqk3wfqd7g771q48yfo3qtt', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            timestamp: new Date().toISOString(),
+            email: email,
+            location: location,
+            complaint: complaint
+            
+        })
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+    })
+    .then(data => {
+        alert('✅ Thank you for your report!\nYour submission was successful.');
+        window.location.href = 'index.html';
+    })
+    .catch(error => {
+        console.error('Error submitting report:', error);
+        alert('❌ Something went wrong while submitting the report. Please try again.');
+        resetLoadingState(event.target);
+    });
+}
+
+
 /**
  * Handle Government login form submission
  */
@@ -80,7 +122,7 @@ function showLoadingState(form) {
     if (button) {
         button.disabled = true;
         const originalHTML = button.innerHTML;
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
         
         // Store original HTML for potential error handling
         button.dataset.originalHtml = originalHTML;

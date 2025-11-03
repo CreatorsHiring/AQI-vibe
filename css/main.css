@@ -374,7 +374,6 @@ body {
     border-radius: 50% 50% 50% 0;
     position: relative;
     transform: rotate(-45deg);
-    animation: bounce 2s infinite;
 }
 
 @keyframes bounce {

@@ -37,7 +37,7 @@
                     <p>Post and spread awareness</p>
                 </div>
                 
-                <form class="login-form" onsubmit="handleNGOLogin(event)">
+                <form class="login-form" onsubmit="handleReport(event)">
                     <div class="form-group">
                         <label for="email">
                             <i class="fas fa-envelope"></i>
@@ -60,7 +60,7 @@
                         <input 
                             type="text"
                             id="text" 
-                            name="text" 
+                            name="location" 
                             placeholder="Enter your location"
                             required
                         >
@@ -71,14 +71,14 @@
                             <i class="fas fa-triangle-exclamation"></i>
                             Issue Description
                         </label>
-                        <textarea id="textarea" rows="5" placeholder="report an issue"></textarea> 
+                        <textarea id="textarea" rows="5" name ="complaint" placeholder="report an issue"></textarea> 
                             
                         </textarea>
                     </div>
                     
                     <button type="submit" class="login-btn ngo-btn">
                         <i class="fas fa-sign-in-alt"></i>
-                        Login to Dashboard
+                        Submit
                     </button>
                 </form>
                 
