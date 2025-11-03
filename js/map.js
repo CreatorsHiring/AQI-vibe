@@ -50,10 +50,11 @@ function addCityMarkers(citiesData) {
             className: 'custom-popup'
         });
 
-        // Add click event
+        // Add click event - redirect to state.html with state name
         marker.on('click', function() {
-            console.log(`Clicked on ${cityData.name}`);
-            showCityDetails(cityData);
+            console.log(`Clicked on ${cityData.name} - Redirecting to state page`);
+            // Redirect to state.html with state name as parameter
+            window.location.href = `state.html?name=${encodeURIComponent(cityData.state)}`;
         });
 
         // Add to map

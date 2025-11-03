@@ -196,6 +196,7 @@ function createPopupContent(cityData) {
                 <strong>PM2.5:</strong> ${formatNumber(cityData.pm25)} µg/m³<br>
                 <strong>PM10:</strong> ${formatNumber(cityData.pm10)} µg/m³<br>
                 <strong>Updated:</strong> ${formatTimestamp(cityData.timestamp)}
+                <strong>CLICK THE MARKER FOR MORE INFO</strong>
             </div>
         </div>
     `;
