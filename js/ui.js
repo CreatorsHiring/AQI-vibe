@@ -21,7 +21,7 @@ function initializeUI() {
     const eduDocBtn = document.getElementById('eduDoc');
     if (eduDocBtn) {
         eduDocBtn.addEventListener('click', () => {
-            window.open('edu.html', '_blank');
+            window.location.href='edu.html';
         });
     }
 
