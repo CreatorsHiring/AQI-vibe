@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="login-container">
-        <div class="login-left">
+        <div class="login-left report-theme">
             <div class="login-branding">
                 <a href="index.html" class="back-link">
                     <i class="fas fa-arrow-left"></i> Back to Dashboard
@@ -25,15 +25,15 @@
                     <i class="fas fa-wind"></i>
                     <h1>Vayu Suraksha</h1>
                 </div>
-                <p class="brand-tagline">Empowering NGOs to make a difference in air quality</p>
+                <p class="brand-tagline">Make a report for NGO'S to take action</p>
             </div>
         </div>
         
         <div class="login-right">
             <div class="login-card">
                 <div class="login-header">
-                    <i class="fas fa-hand-holding-heart header-icon"></i>
-                    <h2>Public Login</h2>
+                    <i class="fa-solid fa-triangle-exclamation header-icon" style="color: #FFD43B;"></i>
+                    <h2>Make a report</h2>
                     <p>Post and spread awareness</p>
                 </div>
                 
@@ -51,27 +51,29 @@
                             required
                         >
                     </div>
-                    
+
                     <div class="form-group">
-                        <label for="password">
-                            <i class="fas fa-lock"></i>
-                            Password
+                        <label for="text">
+                            <i class="fas fa-location"></i>
+                            location
                         </label>
                         <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            placeholder="Enter your password"
+                            type="text"
+                            id="text" 
+                            name="text" 
+                            placeholder="Enter your location"
                             required
                         >
                     </div>
-                    
-                    <div class="form-options">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="remember">
-                            <span>Remember me</span>
+
+                    <div class="form-group">
+                        <label for="text">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            Issue Description
                         </label>
-                        <a href="#" class="forgot-link">Forgot password?</a>
+                        <textarea id="textarea" rows="5" placeholder="report an issue"></textarea> 
+                            
+                        </textarea>
                     </div>
                     
                     <button type="submit" class="login-btn ngo-btn">

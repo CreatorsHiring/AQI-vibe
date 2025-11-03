@@ -27,9 +27,9 @@
             </div>
         </div>
         <div class="navbar-right">
-            <a href="public-login.html" class="nav-btn ngo-btn">
-                <i class="fas fa-hand-holding-heart"></i>
-                Public Login
+            <a href="public-login.html" class="nav-btn report-btn">
+                <i class="fa-solid fa-triangle-exclamation" style="color: #FFD43B;"></i>
+                Report Issue
             </a>
             <a href="ngo-login.html" class="nav-btn ngo-btn">
                 <i class="fas fa-hand-holding-heart"></i>
@@ -48,7 +48,28 @@
             <h3><i class="fas fa-chart-line"></i> Control Panel</h3>
         </div>
 
-        <!-- AQI Legend -->
+        <!-- Action Buttons -->
+        <div class="sidebar-section">
+            <h4>Quick Actions</h4>
+            <button class="sidebar-btn" id="toggleHotspots">
+                <i class="fas fa-map-marker-alt"></i>
+                Toggle Hotspots
+            </button>
+            <button class="sidebar-btn" id="eduDoc">
+                <i class="fas fa-graduation-cap"></i>
+                Edu Doc
+            </button>
+            <button class="sidebar-btn" id="showTrends">
+                <i class="fas fa-chart-area"></i>
+                Show AQ Trends
+            </button>
+            <button class="sidebar-btn" id="refreshData">
+                <i class="fas fa-sync-alt"></i>
+                Refresh Data
+            </button>
+        </div>
+
+                <!-- AQI Legend -->
         <div class="sidebar-section">
             <h4>AQI Legend</h4>
             <div class="legend">
@@ -95,27 +116,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="sidebar-section">
-            <h4>Quick Actions</h4>
-            <button class="sidebar-btn" id="toggleHotspots">
-                <i class="fas fa-map-marker-alt"></i>
-                Toggle Hotspots
-            </button>
-            <button class="sidebar-btn" id="eduDoc">
-                <i class="fas fa-graduation-cap"></i>
-                Edu Doc
-            </button>
-            <button class="sidebar-btn" id="showTrends">
-                <i class="fas fa-chart-area"></i>
-                Show AQ Trends
-            </button>
-            <button class="sidebar-btn" id="refreshData">
-                <i class="fas fa-sync-alt"></i>
-                Refresh Data
-            </button>
         </div>
 
         <!-- Major Cities Widget -->

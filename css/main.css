@@ -96,6 +96,17 @@ body {
     border: 2px solid transparent;
 }
 
+.report-btn {
+    background: linear-gradient(135deg, #b81414, #e96629);
+    color: white;
+}
+
+.report-btn:hover {
+    background: linear-gradient(135deg, #e96629, #b3480b);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 7, 7, 0.4);
+}
+
 .ngo-btn {
     background: linear-gradient(135deg, #10b981, #059669);
     color: white;
@@ -203,9 +214,8 @@ body {
 }
 
 .legend-color {
-    width: 40px;
-    height: 30px;
-    border-radius: 6px;
+    width: 15px;
+    height: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
 }

@@ -60,6 +60,11 @@ body {
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 }
 
+.login-left.report-theme {
+    background: linear-gradient(135deg, #eb1a13 0%, #e2491a 100%);
+}
+
+
 .login-branding {
     position: relative;
     z-index: 1;
