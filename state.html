@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Air Quality Details</title>
+    
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/state.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <a href="index.html" class="back-btn">← Back to Map</a>
+                    <h1 id="stateName">Loading...</h1>
+                    <p class="subtitle" id="lastUpdate">Fetching latest data...</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div id="loadingIndicator" class="loading">
+                <div class="loader"></div>
+                <h2>Loading air quality data...</h2>
+            </div>
+
+            <div id="contentArea" style="display: none;">
+                <!-- AQI Hero Section -->
+                <div class="aqi-hero" id="aqiHero">
+                    <div class="aqi-label">Air Quality Index</div>
+                    <div class="aqi-value" id="aqiValue">--</div>
+                    <div class="aqi-category" id="aqiCategory">Loading...</div>
+                    <div class="aqi-description" id="aqiDescription">Loading...</div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <h3>📈 PM2.5 Trend (Last 7 Days)</h3>
+                        <canvas id="trendChart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>📊 Pollutant Levels</h3>
+                        <canvas id="pollutantChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Pollutant Details -->
+                <div class="pollutant-section">
+                    <h2>🧪 Detailed Pollutant Levels</h2>
+                    <div class="pollutant-grid" id="pollutantGrid"></div>
+                </div>
+
+                <!-- Health Recommendations -->
+                <div class="recommendations-section">
+                    <div class="recommendations-card" id="healthRec">
+                        <h3>💡 Health Recommendations</h3>
+                        <ul class="recommendation-list" id="recList"></ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>ℹ️ Understanding AQI</h3>
+                        <div class="info-content">
+                            <p><strong>What is AQI?</strong></p>
+                            <p>The Air Quality Index (AQI) is a number used to communicate how polluted the air currently is or how polluted it is forecast to become.</p>
+                            <p style="margin-top: 15px;"><strong>Main Pollutants Monitored:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>PM2.5 & PM10:</strong> Particulate matter that can penetrate deep into lungs</li>
+                                <li><strong>NO₂:</strong> Nitrogen dioxide from vehicle emissions</li>
+                                <li><strong>SO₂:</strong> Sulfur dioxide from industrial processes</li>
+                                <li><strong>CO:</strong> Carbon monoxide from incomplete combustion</li>
+                                <li><strong>O₃:</strong> Ground-level ozone formed by chemical reactions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="resources-section">
+                    <h2>🌱 Clean Air Initiatives & Resources</h2>
+                    <div class="resource-grid">
+                        <a href="https://cpcb.nic.in/" target="_blank" class="resource-card">
+                            <div class="resource-icon">🏛️</div>
+                            <h4>Central Pollution Control Board</h4>
+                            <p>Official government air quality data and policies</p>
+                        </a>
+                        <a href="https://www.ncap.res.in/" target="_blank" class="resource-card">
+                            <div class="resource-icon">📋</div>
+                            <h4>National Clean Air Programme</h4>
+                            <p>India's comprehensive action plan for air quality</p>
+                        </a>
+                        <a href="https://www.greenpeace.org/india/" target="_blank" class="resource-card">
+                            <div class="resource-icon">🌿</div>
+                            <h4>Greenpeace India</h4>
+                            <p>Environmental advocacy and awareness campaigns</p>
+                        </a>
+                        <a href="https://urbanemissions.info/" target="_blank" class="resource-card">
+                            <div class="resource-icon">🔬</div>
+                            <h4>Urban Emissions</h4>
+                            <p>Research and tools for air quality management</p>
+                        </a>
+                        <a href="https://www.cleanairfund.org/" target="_blank" class="resource-card">
+                            <div class="resource-icon">💚</div>
+                            <h4>Clean Air Fund</h4>
+                            <p>Global initiative supporting clean air solutions</p>
+                        </a>
+                        <a href="https://www.who.int/health-topics/air-pollution" target="_blank" class="resource-card">
+                            <div class="resource-icon">🏥</div>
+                            <h4>WHO Air Pollution</h4>
+                            <p>World Health Organization guidelines and resources</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/state.js"></script>
+</body>
+</html>
