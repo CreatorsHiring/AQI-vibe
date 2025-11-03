@@ -394,6 +394,70 @@ header::before {
     color: #10b981;
 }
 
+.action-btn-danger {
+    background: white;
+    color: #ef4444;
+    border-color: #fecaca;
+}
+
+.action-btn-danger:hover {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10000;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    min-width: 300px;
+    border-left: 4px solid #10b981;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-success {
+    border-left-color: #10b981;
+}
+
+.notification-success i {
+    color: #10b981;
+    font-size: 20px;
+}
+
+.notification-error {
+    border-left-color: #ef4444;
+}
+
+.notification-error i {
+    color: #ef4444;
+    font-size: 20px;
+}
+
+.notification span {
+    color: #2d3748;
+    font-weight: 500;
+    font-size: 14px;
+    flex: 1;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {

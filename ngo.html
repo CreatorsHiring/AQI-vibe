@@ -161,6 +161,10 @@
                                     <i class="fas fa-map"></i>
                                     View on Map
                                 </button>
+                                <button class="action-btn action-btn-danger" onclick="markAsCompleted(${index})">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Mark as Completed
+                                </button>
                             </div>
                         </div>
                     `;
@@ -213,6 +217,56 @@
         function viewLocation(location) {
             // Redirect to main map and search for the location
             window.location.href = `index.html?search=${encodeURIComponent(location)}`;
+        }
+        
+        // Mark report as completed and delete it
+        function markAsCompleted(index) {
+            if (!confirm('Are you sure you want to mark this report as completed?\n\nThis action will permanently remove the report.')) {
+                return;
+            }
+            
+            try {
+                const reports = JSON.parse(localStorage.getItem('reports')) || [];
+                
+                if (index >= 0 && index < reports.length) {
+                    const deletedReport = reports[index];
+                    reports.splice(index, 1);
+                    localStorage.setItem('reports', JSON.stringify(reports));
+                    
+                    // Show success notification
+                    showNotification(`✅ Report from ${deletedReport.location} marked as completed and removed.`);
+                    
+                    // Reload the reports list
+                    loadReports();
+                } else {
+                    showNotification('❌ Error: Invalid report index.', 'error');
+                }
+            } catch (error) {
+                console.error('Error deleting report:', error);
+                showNotification('❌ Error removing report. Please try again.', 'error');
+            }
+        }
+        
+        // Show notification popup
+        function showNotification(message, type = 'success') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Trigger animation
+            setTimeout(() => notification.classList.add('show'), 10);
+            
+            // Remove after 4 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
         }
         
         // Load reports on page load

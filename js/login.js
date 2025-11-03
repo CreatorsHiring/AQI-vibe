@@ -129,9 +129,7 @@ function handleGovtLogin(event) {
             'niti': 'NITI Aayog',
             'ncap': 'National Clean Air Programme'
         };
-        
-        alert(`Welcome, ${deptNames[deptName]}!\n\nSecure login successful. Redirecting to dashboard...`);
-        window.location.href = 'index.html';
+        window.location.href = 'gov.html';
     }, 1500);
     
     return false;
