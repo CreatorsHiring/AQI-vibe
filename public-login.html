@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Issue - Vayu Suraksha</title>
     
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
@@ -13,6 +16,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/location-map.css">
 </head>
 <body>
     <div class="login-container">
@@ -26,6 +30,19 @@
                     <h1>Vayu Suraksha</h1>
                 </div>
                 <p class="brand-tagline">Make a report for NGO'S to take action</p>
+                
+                <!-- Mini Location Map -->
+                <div class="map-container">
+                    <div class="map-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Location Preview</span>
+                    </div>
+                    <div id="locationMap"></div>
+                    <div class="map-status" id="mapStatus">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Type a location to preview on map</span>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -67,38 +84,51 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="text">
-                            <i class="fas fa-location"></i>
-                            location
+                        <label for="location">
+                            <i class="fas fa-location-dot"></i>
+                            Location
                         </label>
                         <input 
                             type="text"
-                            id="text" 
+                            id="location" 
                             name="location" 
-                            placeholder="Enter your location"
+                            placeholder="Enter your location (city, area, landmark)"
                             required
                         >
+                        <small style="color: #718096; font-size: 12px; margin-top: 4px; display: block;">
+                            <i class="fas fa-lightbulb" style="color: #f59e0b;"></i>
+                            Try typing: Delhi, Mumbai, Hyderabad, etc.
+                        </small>
                     </div>
 
                     <div class="form-group">
-                        <label for="text">
+                        <label for="complaint">
                             <i class="fas fa-triangle-exclamation"></i>
                             Issue Description
                         </label>
-                        <textarea id="textarea" rows="5" name ="complaint" placeholder="report an issue"></textarea> 
-                            
-                        </textarea>
+                        <textarea 
+                            id="complaint" 
+                            rows="5" 
+                            name="complaint" 
+                            placeholder="Describe the air quality issue you're experiencing..."
+                            required
+                        ></textarea> 
                     </div>
                     
                     <button type="submit" class="login-btn ngo-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Submit
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Report
                     </button>
                 </form>
             </div>
         </div>
     </div>
     
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/location-map.js"></script>
     <script src="js/login.js"></script>
 </body>
 </html>
