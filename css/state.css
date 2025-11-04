@@ -1,4 +1,4 @@
-/* State Detail Page Styles */
+/* State Detail Page Styles - Enhanced */
 
 * {
     margin: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 20px;
@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     background: white;
     border-radius: 20px;
@@ -93,306 +93,227 @@ h1 {
     to { transform: rotate(360deg); }
 }
 
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Chart Section */
+.chart-section {
+    background: #f7fafc;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.chart-section h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Enhanced Chart Controls */
+.chart-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.time-range-select {
+    padding: 10px 16px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #2d3748;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    outline: none;
+}
+
+.time-range-select:hover {
+    background: #f0f4ff;
+    border-color: #5568d3;
+}
+
+.time-range-select:focus {
+    border-color: #5568d3;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Custom select arrow styling */
+.time-range-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 20px;
+    padding-right: 36px;
+}
+
+canvas {
+    max-height: 400px;
+}
+
+/* Data Section */
+.data-section {
+    background: #f7fafc;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.data-section h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 /* AQI Hero Section */
 .aqi-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 50px;
-    border-radius: 20px;
-    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    animation: fadeInUp 0.6s ease;
-}
-
-.aqi-label {
-    font-size: 1.2em;
-    opacity: 0.9;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+    transition: background 0.5s ease;
 }
 
 .aqi-value {
-    font-size: 5em;
-    font-weight: bold;
-    margin: 20px 0;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.aqi-category {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.aqi-description {
-    font-size: 1.2em;
-    opacity: 0.95;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* Charts Row */
-.charts-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 25px;
-    margin-bottom: 30px;
-}
-
-.chart-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-left: 4px solid #667eea;
-    animation: fadeIn 0.8s ease;
-}
-
-.chart-card h3 {
-    color: #2d3748;
-    margin-bottom: 20px;
-    font-size: 1.3em;
-}
-
-canvas {
-    max-height: 300px;
-}
-
-/* Pollutant Section */
-.pollutant-section {
-    margin-bottom: 30px;
-}
-
-.pollutant-section h2 {
-    color: #2d3748;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
-
-.pollutant-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.pollutant-card {
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    border: 2px solid #e2e8f0;
-    transition: all 0.3s;
-    animation: fadeIn 1s ease;
-}
-
-.pollutant-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    border-color: #667eea;
-}
-
-.pollutant-icon {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.pollutant-name {
-    font-weight: bold;
-    color: #4a5568;
-    margin-bottom: 12px;
-    font-size: 1.1em;
-}
-
-.pollutant-value {
-    font-size: 2.5em;
-    color: #2d3748;
+    font-size: 4em;
     font-weight: bold;
     margin: 10px 0;
 }
 
-.pollutant-unit {
-    font-size: 0.9em;
-    color: #718096;
-    margin-top: 5px;
-}
-
-.pollutant-status {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.status-good { background: #c6f6d5; color: #22543d; }
-.status-moderate { background: #fef5e7; color: #975a16; }
-.status-poor { background: #fed7d7; color: #9b2c2c; }
-
-/* Recommendations Section */
-.recommendations-section {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
-    margin-bottom: 30px;
-}
-
-.recommendations-card {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    animation: fadeIn 1.2s ease;
-}
-
-.recommendations-card h3 {
-    margin-bottom: 20px;
-    font-size: 1.5em;
-}
-
-.recommendation-list {
-    list-style: none;
-    padding: 0;
-}
-
-.recommendation-list li {
-    padding: 12px 0;
-    padding-left: 30px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    position: relative;
-    line-height: 1.6;
-}
-
-.recommendation-list li:last-child {
-    border-bottom: none;
-}
-
-.recommendation-list li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+.aqi-label {
     font-size: 1.2em;
+    padding: 8px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    background: rgba(0,0,0,0.2);
 }
 
-.info-card {
+/* Pollutant Grid */
+.pollutant-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.pollutant-item {
     background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px;
     border-left: 4px solid #667eea;
+    transition: transform 0.2s ease;
 }
 
-.info-card h3 {
-    color: #2d3748;
-    margin-bottom: 15px;
-    font-size: 1.3em;
+.pollutant-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.info-content {
+.pollutant-name {
     color: #4a5568;
-    line-height: 1.8;
-}
-
-.info-content p {
-    margin-bottom: 10px;
-}
-
-.info-content ul {
-    line-height: 1.8;
-}
-
-.info-content li {
+    font-size: 0.9em;
+    font-weight: 600;
     margin-bottom: 8px;
 }
 
-/* Resources Section */
-.resources-section {
-    margin-bottom: 30px;
-}
-
-.resources-section h2 {
+.pollutant-value {
+    font-size: 2em;
+    font-weight: bold;
     color: #2d3748;
-    margin-bottom: 25px;
-    font-size: 1.8em;
+    margin: 5px 0;
 }
 
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+.pollutant-unit {
+    color: #718096;
+    font-size: 0.85em;
 }
 
-.resource-card {
-    background: white;
-    padding: 25px;
+/* NGO Section */
+.ngo-section {
+    margin-top: 30px;
+    background: #f7fafc;
+    padding: 30px;
     border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ngo-section h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ngo-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.ngo-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 2px solid transparent;
     text-decoration: none;
     color: #2d3748;
-    transition: all 0.3s;
-    border: 2px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    animation: fadeIn 1.4s ease;
+    display: block;
 }
 
-.resource-card:hover {
-    border-color: #667eea;
+.ngo-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: #667eea;
 }
 
-.resource-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.resource-card h4 {
-    margin-bottom: 10px;
+.ngo-name {
+    font-weight: 600;
+    font-size: 1.1em;
     color: #667eea;
-    font-size: 1.2em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.resource-card p {
-    color: #718096;
-    font-size: 0.95em;
-    line-height: 1.6;
+.ngo-desc {
+    color: #4a5568;
+    font-size: 0.9em;
+    line-height: 1.5;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.ngo-link-icon {
+    margin-left: auto;
+    color: #667eea;
+    font-size: 0.9em;
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-    .charts-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .recommendations-section {
+@media (max-width: 1024px) {
+    .content-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -401,49 +322,49 @@ canvas {
     body {
         padding: 10px;
     }
-    
+
     header {
         padding: 25px 20px;
     }
-    
+
     h1 {
         font-size: 1.8em;
     }
-    
+
     .main-content {
         padding: 20px;
     }
-    
-    .aqi-hero {
-        padding: 30px 20px;
-    }
-    
-    .aqi-value {
-        font-size: 3.5em;
-    }
-    
-    .aqi-category {
-        font-size: 1.5em;
-    }
-    
-    .aqi-description {
-        font-size: 1em;
-    }
-    
-    .charts-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .chart-card {
+
+    .chart-section,
+    .data-section {
         padding: 20px;
     }
-    
-    .pollutant-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+    .chart-controls {
+        justify-content: center;
+        flex-wrap: wrap;
     }
-    
-    .resource-grid {
+
+    .time-range-select {
+        min-width: 120px;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .pollutant-grid {
         grid-template-columns: 1fr;
+    }
+
+    .ngo-list {
+        grid-template-columns: 1fr;
+    }
+
+    .aqi-value {
+        font-size: 3em;
+    }
+
+    canvas {
+        max-height: 300px;
     }
 }
 
@@ -451,12 +372,49 @@ canvas {
     h1 {
         font-size: 1.5em;
     }
-    
+
+    .chart-section h2,
+    .data-section h2,
+    .ngo-section h2 {
+        font-size: 1.2em;
+    }
+
+    .time-range-select {
+        width: 100%;
+    }
+
     .aqi-value {
         font-size: 2.5em;
     }
-    
-    .pollutant-grid {
-        grid-template-columns: 1fr;
+
+    .pollutant-value {
+        font-size: 1.5em;
     }
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chart-section,
+.data-section,
+.ngo-section {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Loading state for charts */
+canvas {
+    transition: opacity 0.3s ease;
+}
+
+canvas.updating {
+    opacity: 0.5;
 }
