@@ -86,13 +86,13 @@ function handleReport(event) {
         console.log('Report submitted successfully to webhook');
         alert('✅ Thank you for your report!\n\nYour submission was successful and has been forwarded to local NGOs.');
         // Redirect to NGO dashboard
-        window.location.href = 'ngo.html';
+        window.location.href = 'index.html';
     })
     .catch(error => {
         console.error('Error submitting report to webhook:', error);
         // Still redirect since we saved locally
         alert('⚠️ Report saved locally, but there was an issue with online submission.\n\nYour report will still be visible to NGOs.');
-        window.location.href = 'ngo.html';
+        window.location.href = 'index.html';
     });
 }
 
